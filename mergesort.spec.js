@@ -36,4 +36,22 @@ describe('Merge function', function(){
     it('returns the each array has a length od 1', function(){
         expect(merge([4], [2])).toEqual([2, 4]);
     });
+
+});
+
+
+describe('MergeSort function', function(){
+    beforeAll(function() {
+        spyOn(window, 'mergeSort').and.callThrough(); //needs to use lowercase w for Jasmine
+    });
+
+  it('is should return an array', function(){
+    expect(Array.isArray(mergeSort([10, 6, 90, 10, 3, 4]))).toEqual(true);
   });
+
+  it('is call the mergeSort function recursively', function(){
+    mergeSort([10, 6, 90, 10, 3, 4])
+    expect(window.mergeSort.calls.count() > 1).toBe(true); //for some reason, mergeSort runs twice;
+
+  });
+});
