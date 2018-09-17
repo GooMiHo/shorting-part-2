@@ -49,9 +49,24 @@ describe('MergeSort function', function(){
     expect(Array.isArray(mergeSort([10, 6, 90, 10, 3, 4]))).toEqual(true);
   });
 
+  it('should sort an array', function(){
+    expect(mergeSort([10, 6, 90, 3])).toEqual([3, 6, 10, 90]);
+    expect(mergeSort([2334, 1, 4, 6, 3249, 48, 592, 2, 39, 43, 21, 2023])).toEqual([1, 2, 4, 6, 21, 39, 43, 48, 592, 2023, 2334, 3249]);
+  });
+
+  it('should sort an when numbers repeat', function(){
+    expect(mergeSort([10, 6, 90, 3])).toEqual([3, 6, 10, 90]);
+    expect(mergeSort([2334, 1, 4, 6, 2, 4, 3249, 48, 592, 2, 39, 43, 21])).toEqual([1, 2, 2, 4, 4, 6, 21, 39, 43, 48, 592, 2334, 3249]);
+  });
+
+  it('should sort an array of an odd length', function(){
+    expect(mergeSort([10, 6, 90, 3])).toEqual([3, 6, 10, 90]);
+    expect(mergeSort([2334, 1, 4, 6, 3249, 48, 592, 2, 39, 43, 21])).toEqual([1, 2, 4, 6, 21, 39, 43, 48, 592, 2334, 3249]);
+  });
+
   it('is call the mergeSort function recursively', function(){
     mergeSort([10, 6, 90, 10, 3, 4])
-    expect(window.mergeSort.calls.count() > 1).toBe(true); //for some reason, mergeSort runs twice;
+    expect(window.mergeSort.calls.count() > 2).toBe(true); //for some reason, mergeSort runs twice;
 
   });
 });
