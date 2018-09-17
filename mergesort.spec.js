@@ -17,13 +17,23 @@ describe('Split Array function', function() {
 
 });
 
-
-
-
-
-
-
-
-//   it('is able to sort when there is a repeat number', function(){
-//     expec(merge([11, 3, 5, 17, 11, 9, 5]).toEqual([3, 5, 5, 9, 11, 11, 17]))
-// })
+describe('Merge function', function(){
+    it('is should return an array', function(){
+        expect(Array.isArray(merge([10, 6, 90], [10, 3, 4]))).toEqual(true);
+    });
+    it('is able to merge two sorted arrays into one sorted array', function(){
+      expect(merge([1, 5, 7], [3, 4, 10])).toEqual([1, 3, 4, 5, 7, 10])
+    });
+    it('is able to merge two sorted arrays into one sorted array when first array is one element longer', function(){
+        expect(merge([1, 5, 7, 20], [3, 4, 10])).toEqual([1, 3, 4, 5, 7, 10, 20])
+    });
+    it('is able to sort when there is a repeat number', function(){
+        expect(merge([3, 5, 11], [5, 9, 11])).toEqual([3, 5, 5, 9, 11, 11]);
+    })
+    it('returns the each array is empty', function(){
+        expect(merge([], [])).toEqual([]);
+    });
+    it('returns the each array has a length od 1', function(){
+        expect(merge([4], [2])).toEqual([2, 4]);
+    });
+  });
